@@ -1,11 +1,19 @@
 package se.lexicon.LambdaEx1;
 
+import java.util.Objects;
+
 public class Product {
     private String productName;
     private Double price;
     private int stock;
 
     public Product() {
+    }
+
+    public Product(String productName, Double price, int stock) {
+        this.productName = productName;
+        this.price = price;
+        this.stock = stock;
     }
 
     public String getProductName() {
@@ -39,5 +47,18 @@ public class Product {
                 ", price=" + price +
                 ", stock=" + stock +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return stock == product.stock && Objects.equals(productName, product.productName) && Objects.equals(price, product.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(productName, price, stock);
     }
 }
