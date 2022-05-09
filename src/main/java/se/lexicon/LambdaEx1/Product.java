@@ -16,6 +16,9 @@ public class Product {
         this.stock = stock;
     }
 
+    public Product(String samsung, int i) {
+    }
+
     public String getProductName() {
         return productName;
     }
